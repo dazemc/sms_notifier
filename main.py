@@ -16,7 +16,10 @@ def get_number():
         )
         get_number()
     if cell_num == "0000":
-        return os.system("shutdown /r /t 1")
+        if os.name == "nt":
+            return os.system("shutdown /r /t 1")
+        if os.name == "posix":
+            return os.system("sudo reboot")
     if cell_num == "0001":
         quit()
     else:
