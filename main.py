@@ -8,6 +8,13 @@ body = f"Your {store_name} order is ready for pickup!\n🍟🍔➡️😋"
 num_history = []
 
 
+def clear():
+    if os.name == "posix":
+        os.system("clear")
+    if os.name == "nt":
+        os.system('cls')
+
+
 def get_number():
 
     global COUNTRY_CODE
@@ -76,11 +83,9 @@ def sms_loop():
             print(f"Twilio API Message Status:\n{error}")
         else:
             num_history.append(rec_num)
-            if os.name == "posix":
-                os.system("clear")
-            if os.name == "nt":
-                os.system('cls')
+            clear()
             print(f"Message sent to {rec_num.replace('+1', '')} successfully")
 
 
+clear()
 sms_loop()
