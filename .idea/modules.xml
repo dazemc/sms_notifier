@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SMSNotifieer.iml" filepath="$PROJECT_DIR$/.idea/SMSNotifieer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SMSNotifier.iml" filepath="$PROJECT_DIR$/.idea/SMSNotifier.iml" />
     </modules>
   </component>
 </project>
