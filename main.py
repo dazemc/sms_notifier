@@ -11,7 +11,7 @@ num_history = []
 def get_number():
 
     global COUNTRY_CODE
-    cell_num = input("Enter Cellphone number: ")
+    cell_num = input("\nEnter Cellphone number: ")
     if cell_num == "*":
         print(
             "Help:\n"
@@ -76,6 +76,10 @@ def sms_loop():
             print(f"Twilio API Message Status:\n{error}")
         else:
             num_history.append(rec_num)
+            if os.name == "posix":
+                os.system("clear")
+            if os.name == "nt":
+                os.system('cls')
             print(f"Message sent to {rec_num.replace('+1', '')} successfully")
 
 
