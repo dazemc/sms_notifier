@@ -25,6 +25,7 @@ def get_number():
         get_number()
     if cell_num == "/":
         print(num_history[::-1])
+        get_number()
     if cell_num == "0000":
         if os.name == "nt":
             return os.system("shutdown /r /t 1")
