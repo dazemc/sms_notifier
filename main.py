@@ -3,8 +3,8 @@ import os
 from twilio.rest import Client
 
 COUNTRY_CODE = "+1"
-store_name = "Stacks"
-body = f"Your {store_name} order is ready for pickup!\n🍟🍔➡️😋"
+STORE_NAME = "Stacks"
+BODY = f"Your {STORE_NAME} order is ready for pickup!\n🍟🍔➡️😋"
 num_history = []
 
 
@@ -17,9 +17,10 @@ def clear():
 
 def get_number():
 
-    global COUNTRY_CODE
+    global COUNTRY_CODE, BODY
     cell_num = input("\nEnter Cellphone number: ")
     if cell_num == "*":
+        # This is designed to work with a numpad as the ony peripheral
         print(
             "Help:\n"
             "'*' Print this menu\n"
@@ -28,6 +29,7 @@ def get_number():
             "'0001' Restart program\n"
             "'0002' Exit program\n"
             "'0003' View/Change country code\n"
+            "'0004' Change default message\n"
         )
         get_number()
     if cell_num == "/":
@@ -51,6 +53,11 @@ def get_number():
         #         new_cc = "+" + new_cc
         #     COUNTRY_CODE = new_cc
         get_number()
+    if cell_num == "0004":
+        message = input(f"\nCurrent message:\n'{BODY}'\nEnter the new message now or press enter to cancel: ")
+        if message:
+            BODY = message
+        get_number()
     else:
         return COUNTRY_CODE + cell_num
 
@@ -73,7 +80,7 @@ def sms_loop():
         client = Client(account_sid, auth_token)
         try:
             message = client.messages.create(
-                                          body=body,
+                                          body=BODY,
                                           from_=twilio_number,
                                           to=rec_num
                                       )
