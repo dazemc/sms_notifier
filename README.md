@@ -34,7 +34,7 @@ You need to set the following environment variables:
 
 ## Running the App
 
-Run the Python script in your terminal with `python script_name.py`. 
+Run the Python script in your terminal with `python main.py`. 
 
 ## Note
 
